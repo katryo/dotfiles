@@ -9,8 +9,8 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 [user]
-	name = Yuku Takahashi
-	email = taka84u9@gmail.com
+	name = Ryo Kato
+	email = katoryo55@gmail.com
 [http]
     sslVerify = false
 [alias]
