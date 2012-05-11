@@ -7,16 +7,16 @@
 "                                                                           "
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-"" General {{{1
+"" general {{{1
 
-set nocompatible            " use Vim in more useful way
+set nocompatible            " use vim in more useful way
 set clipboard=unnamed       " share clipboard with other systems
 
-"" Text Formatting {{{1
+"" text formatting {{{1
 
 set autoindent              " automatic indent new lines
 set smartindent             " be smart about it
-inoremap # X<BS>#
+inoremap # x<bs>#
 set wrap                    " wrap lines
 set sidescroll=5
 set softtabstop=2
@@ -34,29 +34,29 @@ set wrapmargin=0
 set virtualedit=block       " allow virtual edit in visual block ..
 
 
-"" Remapping {{{1
+"" remapping {{{1
 
-let mapleader=','           " Lead with ,
-" Jump to vimrc
-nnoremap <space><space> :<C-u>edit $HOME/.vimrc<CR>
-" Reload vimrc setting
-nnoremap <space>s       :<C-u>source $HOME/.vimrc<CR>
-" Create new tab
-cnoremap <C-t> <C-u>tabnew<CR>
-nnoremap <C-h> :<C-u>tabprevious<CR>
-nnoremap <C-l> :<C-u>tabnext<CR>
+let mapleader=','           " lead with ,
+" jump to vimrc
+nnoremap <space><space> :<c-u>edit $home/.vimrc<cr>
+" reload vimrc setting
+nnoremap <space>s       :<c-u>source $home/.vimrc<cr>
+" create new tab
+cnoremap <c-t> <c-u>tabnew<cr>
+nnoremap <c-h> :<c-u>tabprevious<cr>
+nnoremap <c-l> :<c-u>tabnext<cr>
 
-"" UI {{{1
+"" ui {{{1
 
 set ruler                   " show the cursor position all the time
 " highlight cursor line in current window{{{2
 augroup cch
   autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
-augroup END
-highlight clear CursorLine
-highlight CursorLine ctermbg=black
+  autocmd winleave * set nocursorline
+  autocmd winenter,bufread * set cursorline
+augroup end
+highlight clear cursorline
+highlight cursorline ctermbg=black
 " }}}2
 set showcmd                 " display incomplete commands
 set number                  " line numbers
@@ -64,212 +64,212 @@ set nolazyredraw            " don't redraw while executing macros
 set wildmenu                " turn on wild menu
 set wildmode=list:longest,full
 set cmdheight=1             " command line height
-" Enable all keys to move the cursor left/right to the previous/next line
+" enable all keys to move the cursor left/right to the previous/next line
 set whichwrap=b,s,h,l,<,>,[,]
-" Allow backspacing over everything in insert mode
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-set shortmess=filtIoOA      " shorten messages
+set shortmess=filtiooa      " shorten messages
 set report=0                " tell us about changes
 set nostartofline           " don't jum to the start of line when scrolling
 set showmatch               " brackets/braces that is
 set matchtime=3             " duration to show matching brace (1/10 sec)
-set laststatus=2            " The last window always have status line
-set scrolloff=5             " Keep at least 5 lines above and below the cursor
-set visualbell t_vb=        " No beep sound
-" Treat octal and hexadecimal number as decimal number
-" octal  Numbers that start with a zero will be considered to be octal
-"        Example: Using CTRL-A on "007" results in "010"
-" hex    Numbers starting with "0x" or "0X" will be considered to be hexadecimal
-"        Example: Using CTRL-X on "0x100" results in "0x0ff"
+set laststatus=2            " the last window always have status line
+set scrolloff=5             " keep at least 5 lines above and below the cursor
+set visualbell t_vb=        " no beep sound
+" treat octal and hexadecimal number as decimal number
+" octal  numbers that start with a zero will be considered to be octal
+"        example: using ctrl-a on "007" results in "010"
+" hex    numbers starting with "0x" or "0x" will be considered to be hexadecimal
+"        example: using ctrl-x on "0x100" results in "0x0ff"
 set nrformats-=octal,hex
-if has("mouse") " Enable the use of the mouse in all modes
+if has("mouse") " enable the use of the mouse in all modes
   set mouse=a
 endif
 
 syntax on
-"" Colorize {{{2
+"" colorize {{{2
 
-" Keep this order!
+" keep this order!
 " solarized - http://ethanschoonover.com/solarized
-colorscheme solarized
+colorscheme molokai
 set background=dark
 
 " highlight whitespaces
-highlight WhitespaceEOL ctermbg=red
-matc WhitespaceEOL /\s\+$/
+highlight whitespaceeol ctermbg=red
+matc whitespaceeol /\s\+$/
 
 " highlight comments
-"highlight Comment ctermfg=DarkCyan
+"highlight comment ctermfg=darkcyan
 
-"" Backup {{{1
+"" backup {{{1
 
 " backup current file, deleted afterwards
 set nobackup
 set writebackup
-if !filewritable($HOME."/.vim-backup")
-    call mkdir($HOME."/.vim-backup", "p")
+if !filewritable($home."/.vim-backup")
+    call mkdir($home."/.vim-backup", "p")
 endif
-set backupdir=$HOME/.vim-backup
-if !filewritable($HOME."/.vim-swap")
-    call mkdir($HOME."/.vim-swap", "p")
+set backupdir=$home/.vim-backup
+if !filewritable($home."/.vim-swap")
+    call mkdir($home."/.vim-swap", "p")
 endif
-set directory=$HOME/.vim-swap
+set directory=$home/.vim-swap
 
-"" Search {{{1
+"" search {{{1
 
 set history=100             " keep 100 lines of command line histories
 set ignorecase
 set smartcase
-set wrapscan                " Searches wrap around the end of the file
-" While typing a search command, show where the pattern matches
+set wrapscan                " searches wrap around the end of the file
+" while typing a search command, show where the pattern matches
 set incsearch
 set hlsearch                " highlighting matches
-" turn off highlight by Esc x 2
-nmap <ESC><ESC> :nohlsearch<CR><ESC>
+" turn off highlight by esc x 2
+nmap <esc><esc> :nohlsearch<cr><esc>
 
-"" Character encoding {{{1
+"" character encoding {{{1
 
-set encoding=utf-8          " Use utf-8
+set encoding=utf-8          " use utf-8
 set termencoding=utf-8      " ..
 set fileencodings=utf-8     " ..
-" Automatic end-of-file format detection
+" automatic end-of-file format detection
 set fileformats=unix,mac,dos
 
-"" Plugins {{{1
-"" NeoBundle {{{2
+"" plugins {{{1
+"" neobundle {{{2
 filetype plugin indent off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
-" let NeoBundle manage NeoBundle
-NeoBundle 'Shougo/neobundle.vim'
+" let neobundle manage neobundle
+neobundle 'shougo/neobundle.vim'
 
-"" for Version > 702 only {{{2
+"" for version > 702 only {{{2
 if v:version > 702
   "" unite.vim {{{3
-  NeoBundle 'Shougo/unite.vim'
+  neobundle 'shougo/unite.vim'
 
   let g:unite_enable_split_vertically = 1
   let g:unite_winwidth = 50
   let g:unite_enable_start_insert = 1
-  let g:unite_source_file_mru_ignore_pattern = '.*\/$\|.*Application\ Data.*'
-  nnoremap [unite] <Nop>
+  let g:unite_source_file_mru_ignore_pattern = '.*\/$\|.*application\ data.*'
+  nnoremap [unite] <nop>
   nmap     <space>u [unite]
-  nnoremap <silent> [unite]u :<C-u>UniteWithBufferDir -horizontal -buffer-name=files file file/new<CR>
-  nnoremap <silent> [unite]c :<C-u>UniteWithCurrentDir -horizontal -buffer-name=files buffer file_mru<CR>
-  nnoremap <silent> [unite]i :<C-u>Unite -buffer-name=files buffer_tab<CR>
-  nnoremap <silent> [unite]b :<C-u>Unite -buffer-name=files bookmark<CR>
-  nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-  nnoremap <silent> [unite]l :<C-u>Unite line<CR>
-  nnoremap <silent> [unite]t :<C-u>Unite -immediately -horizontal tab:no-current<CR>
-  nnoremap <silent> [unite]m :<C-u>Unite -no-empty git_modified<CR>
+  nnoremap <silent> [unite]u :<c-u>unitewithbufferdir -horizontal -buffer-name=files file file/new<cr>
+  nnoremap <silent> [unite]c :<c-u>unitewithcurrentdir -horizontal -buffer-name=files buffer file_mru<cr>
+  nnoremap <silent> [unite]i :<c-u>unite -buffer-name=files buffer_tab<cr>
+  nnoremap <silent> [unite]b :<c-u>unite -buffer-name=files bookmark<cr>
+  nnoremap <silent> [unite]r :<c-u>unite -buffer-name=register register<cr>
+  nnoremap <silent> [unite]l :<c-u>unite line<cr>
+  nnoremap <silent> [unite]t :<c-u>unite -immediately -horizontal tab:no-current<cr>
+  nnoremap <silent> [unite]m :<c-u>unite -no-empty git_modified<cr>
 
-  nnoremap <silent> <C-g>    :<C-u>Unite vcs_grep/git<CR>
-  "nnoremap <silent> <C-h>    :<C-u>Unite -start-insert help<CR>
+  nnoremap <silent> <c-g>    :<c-u>unite vcs_grep/git<cr>
+  "nnoremap <silent> <c-h>    :<c-u>unite -start-insert help<cr>
 
-  autocmd FileType *      nnoremap <silent><buffer> K :<C-u>Unite -start-insert -default-action=vsplit ref/man<CR>
-  autocmd FileType erlang nnoremap <silent><buffer> K :<C-u>Unite -start-insert -default-action=vsplit ref/erlang<CR>
-  autocmd FileType ruby   nnoremap <silent><buffer> K :<C-u>Unite -start-insert -default-action=vsplit ref/ri<CR>
-  autocmd FileType python nnoremap <silent><buffer> K :<C-u>Unite -start-insert -default-action=vsplit ref/pydoc<CR>
-  autocmd FileType perl   nnoremap <silent><buffer> K :<C-u>Unite -start-insert -default-action=vsplit ref/perldoc<CR>
+  autocmd filetype *      nnoremap <silent><buffer> k :<c-u>unite -start-insert -default-action=vsplit ref/man<cr>
+  autocmd filetype erlang nnoremap <silent><buffer> k :<c-u>unite -start-insert -default-action=vsplit ref/erlang<cr>
+  autocmd filetype ruby   nnoremap <silent><buffer> k :<c-u>unite -start-insert -default-action=vsplit ref/ri<cr>
+  autocmd filetype python nnoremap <silent><buffer> k :<c-u>unite -start-insert -default-action=vsplit ref/pydoc<cr>
+  autocmd filetype perl   nnoremap <silent><buffer> k :<c-u>unite -start-insert -default-action=vsplit ref/perldoc<cr>
 
-  autocmd FileType unite call s:unite_my_settings()
+  autocmd filetype unite call s:unite_my_settings()
   function! s:unite_my_settings()
-    " Overwrite settings
-    nmap <buffer><ESC>  <Plug>(unite_exit)
-    nmap <buffer><C-c>  <Plug>(unite_exit)
-    "imap <buffer>jj     <Plug>(unite_insert_leave)
-    imap <buffer><C-w>  <Plug>(unite_delete_backward_path)
+    " overwrite settings
+    nmap <buffer><esc>  <plug>(unite_exit)
+    nmap <buffer><c-c>  <plug>(unite_exit)
+    "imap <buffer>jj     <plug>(unite_insert_leave)
+    imap <buffer><c-w>  <plug>(unite_delete_backward_path)
 
 
-    " <C-l>: manual neocomplecache completion.
-    inoremap <buffer><C-l>  <C-x><C-u><C-p><Down>
+    " <c-l>: manual neocomplecache completion.
+    inoremap <buffer><c-l>  <c-x><c-u><c-p><down>
 
-    nmap <buffer><expr><C-d>  unite#do_action('delete')
-    imap <buffer><expr><C-d>  unite#do_action('delete')
-    nmap <buffer><expr><C-b>  unite#do_action('bookmark')
-    imap <buffer><expr><C-b>  unite#do_action('bookmark')
-    nmap <buffer><expr><C-k>  unite#do_action('above')
-    imap <buffer><expr><C-k>  unite#do_action('above')
-    nmap <buffer><expr><C-i>  unite#do_action('left')
-    imap <buffer><expr><C-i>  unite#do_action('left')
+    nmap <buffer><expr><c-d>  unite#do_action('delete')
+    imap <buffer><expr><c-d>  unite#do_action('delete')
+    nmap <buffer><expr><c-b>  unite#do_action('bookmark')
+    imap <buffer><expr><c-b>  unite#do_action('bookmark')
+    nmap <buffer><expr><c-k>  unite#do_action('above')
+    imap <buffer><expr><c-k>  unite#do_action('above')
+    nmap <buffer><expr><c-i>  unite#do_action('left')
+    imap <buffer><expr><c-i>  unite#do_action('left')
   endfunction
 
-  " Unite Plugins
+  " unite plugins
     "" unite-git_grep {{{4
-    NeoBundle 'sgur/unite-git_grep'
+    neobundle 'sgur/unite-git_grep'
 
     "" unite-git {{{4
-    NeoBundle 'taka84u9/unite-git'
+    neobundle 'taka84u9/unite-git'
 
     "" unite-outline {{{4
-    NeoBundle 'h1mesuke/unite-outline'
+    neobundle 'h1mesuke/unite-outline'
 
     "" unite-help {{{4
-    NeoBundle 'tsukkee/unite-help'
+    neobundle 'tsukkee/unite-help'
 
 
   "" vim-ref {{{3
-  NeoBundle 'thinca/vim-ref'
+  neobundle 'thinca/vim-ref'
 
   let g:ref_perldoc_complete_head = 1
   let g:ref_open = 'vsplit'
 
-    " vim-ref Plugins
+    " vim-ref plugins
     "" vim-ref-ri {{{4
-    NeoBundle 'taka84u9/vim-ref-ri'
+    neobundle 'taka84u9/vim-ref-ri'
 
   "" neocomplcache {{{3
-  NeoBundle 'Shougo/neocomplcache'
-  NeoBundle 'Shougo/neocomplcache-snippets-complete'
+  neobundle 'shougo/neocomplcache'
+  neobundle 'shougo/neocomplcache-snippets-complete'
 
-  "imap <C-k> <Plug>(neocomplcache_snippets_expand)
-  "smap <C-k> <Plug>(neocomplcache_snippets_expand)
+  "imap <c-k> <plug>(neocomplcache_snippets_expand)
+  "smap <c-k> <plug>(neocomplcache_snippets_expand)
 
   let g:neocomplcache_enable_auto_select = 1
 
-  " Use neocomplcache.
+  " use neocomplcache.
   let g:neocomplcache_enable_at_startup = 1
-  " Use underbar completion.
+  " use underbar completion.
   let g:neocomplcache_enable_underbar_completion = 1
-  " Set minimum syntax keyword length.
+  " set minimum syntax keyword length.
   let g:neocomplcache_min_syntax_length = 3
   let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-  " Use smartcase.
+  " use smartcase.
   let g:neocomplcache_enable_smart_case = 1
-  " Use camel case completion.
+  " use camel case completion.
   let g:neocomplcache_enable_camel_case_completion = 1
-  " Select with <TAB>
-  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  " select with <tab>
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
   let g:neocomplcache_ctags_arguments_list = {
-        \ 'perl' : '-R -h ".pm"'
+        \ 'perl' : '-r -h ".pm"'
         \ }
 
   let g:neocomplcache_snippets_dir = "~/.vim/snippets"
-  " Define dictionary.
+  " define dictionary.
   let g:neocomplcache_dictionary_filetype_lists = {
         \ 'default'    : '',
-        \ 'perl'       : $HOME . '/.vim/dict/perl.dict'
+        \ 'perl'       : $home . '/.vim/dict/perl.dict'
         \ }
 
-  " Define keyword.
+  " define keyword.
   if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
   endif
   let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-  "" Vimfiler {{{3
-  NeoBundle 'Shougo/vimfiler'
+  "" vimfiler {{{3
+  neobundle 'shougo/vimfiler'
 
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_safe_mode_by_default = 0
 
   "" indent-guides {{{3
-  NeoBundle 'nathanaelkane/vim-indent-guides'
+  neobundle 'nathanaelkane/vim-indent-guides'
 
   let g:indent_guides_auto_colors = 0 " read help txt
   let g:indent_guides_enable_on_vim_startup = 1
@@ -277,91 +277,91 @@ if v:version > 702
   "let g:indent_guides_guide_size = 1
 
   "" localrc {{{3
-  NeoBundle "thinca/vim-localrc"
+  neobundle "thinca/vim-localrc"
 
   "" syntastic {{{3
-  NeoBundle "scrooloose/syntastic"
+  neobundle "scrooloose/syntastic"
 
   let g:syntastic_mode_map = { 'mode': 'passive',
         \ 'active_filetypes': ['ruby', 'javascript', 'python', 'cpp', 'coffeescript'],
         \ 'passive_filetypes': [] }
 
   "" vimproc {{{3
-  NeoBundle 'Shougo/vimproc'
+  neobundle 'shougo/vimproc'
 
 endif "}}}2
 
-"" All version {{{2
+"" all version {{{2
 
   "" vim-fugitive {{{3
-  NeoBundle 'tpope/vim-fugitive'
+  neobundle 'tpope/vim-fugitive'
 
   "" vim-surround {{{3
-  NeoBundle 'tpope/vim-surround'
+  neobundle 'tpope/vim-surround'
   let g:surround_{char2nr("#")} = "{# \r #}"
   let g:surround_{char2nr("*")} = "/* \r */"
   let g:surround_{char2nr("p")} = "<?php \r ?>"
 
   "" rails.vim {{{3
-  NeoBundle 'tpope/vim-rails'
+  neobundle 'tpope/vim-rails'
 
   "" quick run {{{3
-  NeoBundle 'thinca/vim-quickrun'
+  neobundle 'thinca/vim-quickrun'
 
-  nmap <Leader>r <plug>(quickrun)
+  nmap <leader>r <plug>(quickrun)
 
-  "" EasyMotion {{{3
-  NeoBundle 'Lokaltog/vim-easymotion'
+  "" easymotion {{{3
+  neobundle 'lokaltog/vim-easymotion'
 
-  let g:EasyMotion_leader_key = '<Space>j'
+  let g:easymotion_leader_key = '<space>j'
 
-  "" Gist.vim {{{3
-  NeoBundle "mattn/gist-vim"
-  NeoBundle "mattn/webapi-vim"
+  "" gist.vim {{{3
+  neobundle "mattn/gist-vim"
+  neobundle "mattn/webapi-vim"
 
   let g:gist_detect_filetype = 1
   let g:github_user = "taka84u9"
   let g:github_token = "e9f46f535783ba347658b0569a450f74"
 
   "" vim-coffee-script {{{3
-  NeoBundle "kchmck/vim-coffee-script"
+  neobundle "kchmck/vim-coffee-script"
 
-  nnoremap <silent> <Space>c :CoffeeCompile watch vert <CR><C-w>h
+  nnoremap <silent> <space>c :coffeecompile watch vert <cr><c-w>h
   let coffee_compile_vert = 1
 
   "" vim-powerline {{{3
-  NeoBundle "Lokaltog/vim-powerline"
-  "let g:Powerline_symbols = 'fancy'
+  neobundle "lokaltog/vim-powerline"
+  "let g:powerline_symbols = 'fancy'
 
   "" vim-less {{{3
-  NeoBundle "groenewege/vim-less"
+  neobundle "groenewege/vim-less"
 
   "" vim-perl {{{3
-  NeoBundle 'petdance/vim-perl'
+  neobundle 'petdance/vim-perl'
 
-  "" foldCC {{{3
-  NeoBundle 'LeafCage/foldCC'
-  set foldtext=FoldCCtext()
-  hi Folded ctermfg=DarkBlue
-  hi FoldColumn ctermfg=LightGrey
+  "" foldcc {{{3
+  neobundle 'leafcage/foldcc'
+  set foldtext=foldcctext()
+  hi folded ctermfg=darkblue
+  hi foldcolumn ctermfg=lightgrey
 
   "" vim-markdown {{{3
-  NeoBundle 'tpope/vim-markdown'
+  neobundle 'tpope/vim-markdown'
 
   filetype plugin indent on
   "
-  " Brief help
-  " :NeoBundleList       - list configured bundles
-  " :NeoBundleInstall(!) - install(update) bundles
-  " :NeoBundleClean(!)   - confirm(or auto-approve) removal of unused bundles
+  " brief help
+  " :neobundlelist       - list configured bundles
+  " :neobundleinstall(!) - install(update) bundles
+  " :neobundleclean(!)   - confirm(or auto-approve) removal of unused bundles
   "
 
 " }}}2
 
-"" Source {{{1
+"" source {{{1
 
-autocmd BufRead,BufNewFile Gemfile set filetype=ruby
-autocmd BufRead,BufNewFile *.json set filetype=javascript
+autocmd bufread,bufnewfile gemfile set filetype=ruby
+autocmd bufread,bufnewfile *.json set filetype=javascript
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
