@@ -20,21 +20,13 @@ export OUTPUT_CHARSET=utf-8
 # Environment variables {{{1
 export PATH=$HOME/bin:$PATH
 export DOTFILES=$HOME/work/dotfiles
+# 20120612 info_desisn_java Kyoto University class
+export CATALINA_HOME=$HOME/work/codes/info_system_design_1/20120612/tomcat_activebpel_ht
 
 # Alias {{{1
 
 # expand aliases before completing
 setopt complete_aliases
-
-_vim=`which vim`
-
-vim() {
-  if [ $1 ] ; then
-    $_vim $1
-  else
-    $_vim ~/.vimrc
-  fi
-}
 
 ## General
 alias ps='ps aux'
@@ -323,4 +315,9 @@ esac
 # local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
+# vimを香り屋にする.
 # vim: set foldmethod=marker :
+#export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+#alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+PATH=/Users/katouryou/bin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin
