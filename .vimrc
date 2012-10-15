@@ -23,6 +23,8 @@ let g:vimfiler_as_default_explorer = 1
 "syntasticの設定
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
+let g:syntastic_ruby_exec = 'ruby19'
+let g:syntastic_ruby_exec = '~/.rbenv/versions/1.9.2-p318/bin/ruby'
 "Rainbow_parentheses.vimの設定。{}を階層で示す
 au VimEnter * RainbowParenthesesToggle
 filetype plugin indent off
@@ -129,6 +131,8 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'kchmck/vim-coffee-script.git'
+NeoBundle 'taka84u9/vim-ref-ri'
 "以下、インストールするプラグインのリポジトリを必要に応じて追記
  
 
