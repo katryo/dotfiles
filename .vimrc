@@ -1,6 +1,5 @@
 set nocompatible
 syntax on
-
 colorscheme molokai
 set encoding=utf-8
 set autoread 
@@ -49,7 +48,8 @@ if has('gui_running')
 endif
 "ここまでマウス対策
 
-
+"neocomplcache
+let g:neocomplcache_enable_at_startup = 1
 
 " 常にステータス行を表示 (詳細は:he laststatus)
 set laststatus=2
@@ -59,8 +59,6 @@ set cmdheight=2
 set showcmd
 " タイトルを表示
 set title
-
-
 
 
 "-------------------------------------------------------------------------------
@@ -133,10 +131,13 @@ NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'kchmck/vim-coffee-script.git'
 NeoBundle 'taka84u9/vim-ref-ri'
+NeoBundle 'kana/vim-smartinput'
 "以下、インストールするプラグインのリポジトリを必要に応じて追記
- 
 
+"-----------------------------------------------------------------------------------
+"vim-smartinputの設定
+call smartinput#define_rule({'at': '\\\%#', 'char': '(', 'input': '('})
+"-----------------------------------------------------------------------------------
 filetype plugin on
 filetype indent on
-
 set nocompatible
