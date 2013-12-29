@@ -116,6 +116,8 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
+
+
 "NeoBundle
 "NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 
@@ -140,4 +142,6 @@ call smartinput#define_rule({'at': '\\\%#', 'char': '(', 'input': '('})
 "-----------------------------------------------------------------------------------
 filetype plugin on
 filetype indent on
+let g:vimfiler_as_default_explorer=1
+let g:vimfiler_safe_mode_by_default=0
 set nocompatible

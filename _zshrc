@@ -320,4 +320,19 @@ esac
 #export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 #alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 #alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+
+# http://qiita.com/yaotti/items/157ff0a46736ec793a91
+setopt AUTO_CD
+cdpath=(.. ~ ~/src)
+
+
+
 PATH=/Users/katouryou/bin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin
+
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/shims:$PATH"
+#export PATH="$HOME/.pyenv/shims:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+export PGDATA=/usr/local/var/postgres

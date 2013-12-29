@@ -7,9 +7,9 @@
 	grep = auto
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/katouryou/.gitignore
 [user]
-	name = Ryo Kato
+	name = katryo
 	email = katoryo55@gmail.com
 [http]
     sslVerify = false
@@ -34,3 +34,9 @@
     generic = G move-last-line
 [pull]
 	rebase = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
