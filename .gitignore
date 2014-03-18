@@ -1,8 +1,8 @@
-.DS_Store
 *.swp
+.DS_Store
+\#*
 *.pyc
 *.pyo
-_vim/bundle
-_vim/.vim
-_vim/autoload
-_vim/plugin
+*.class
+.noseids
+*~
