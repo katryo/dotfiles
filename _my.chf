@@ -1,3 +1,0 @@
-[mysql]
-#safe-updates
-prompt=\\u@\\h:\\d>\\_
