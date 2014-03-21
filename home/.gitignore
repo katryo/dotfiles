@@ -6,3 +6,4 @@
 *.class
 .noseids
 *~
+.zshenv
