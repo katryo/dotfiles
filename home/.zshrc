@@ -329,10 +329,12 @@ cdpath=(.. ~ ~/src)
 
 PATH=/Users/katouryou/bin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin
 
-eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/shims:$PATH"
-#export PATH="$HOME/.pyenv/shims:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.plenv/shims:$PATH"
+eval "$(plenv init -)"
+export PATH="$HOME/.pyenv/shims:$PATH"
+#export path="$home/.pyenv/bin:$path"
 eval "$(pyenv init -)"
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 export PGDATA=/usr/local/var/postgres

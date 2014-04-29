@@ -1,6 +1,5 @@
 set nocompatible
 syntax on
-colorscheme molokai
 set encoding=utf-8
 set autoread 
 set number 

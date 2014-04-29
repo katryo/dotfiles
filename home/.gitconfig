@@ -7,9 +7,10 @@
 	grep = auto
 [core]
 	editor = vim
-	excludesfile = /Users/katouryou/.gitignore
+	excludesfile = /Users/katryo/.gitignore_global
+	precomposeunicode = true
 [user]
-	name = katryo
+	name = Ryo Kato
 	email = katoryo55@gmail.com
 [http]
     sslVerify = false
@@ -38,5 +39,8 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.8.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
