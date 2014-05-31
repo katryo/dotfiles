@@ -279,6 +279,10 @@ _study () {
 }
 compdef _study study
 
+chpwd() {
+    ls
+}
+
 # Language specific configuration {{{1
 
 ## Python
@@ -325,6 +329,19 @@ esac
 setopt AUTO_CD
 cdpath=(.. ~ ~/src)
 
+# percol
+function exists { which $1 &> /dev/null }
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(history -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi
 
 
 PATH=/Users/katouryou/bin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin
