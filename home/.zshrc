@@ -25,8 +25,6 @@ export CATALINA_HOME=$HOME/work/codes/info_system_design_1/20120612/tomcat_activ
 
 # Alias {{{1
 
-# expand aliases before completing
-setopt complete_aliases
 
 ## General
 alias ps='ps aux'
@@ -105,7 +103,9 @@ GRAY="%{${fg[GRAY]}%}"
 
 RPROMPT="%T"
 setopt transient_rprompt
+. `brew --prefix`/etc/profile.d/z.sh
 precmd () {
+    z --add "$(pwd -P)"
     PROMPT="${GREEN}%n${RESET}@${BLUE}%m${YELLOW} %~${RESET}" 
     st=`git status 2>/dev/null`
     if [[ -n `echo "$st" | grep "^nothing to"` ]]
@@ -343,6 +343,7 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
+export EDITOR=vim
 
 PATH=/Users/katouryou/bin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin
 
