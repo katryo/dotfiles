@@ -23,8 +23,6 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_ruby_exec = 'ruby19'
 let g:syntastic_ruby_exec = '~/.rbenv/versions/1.9.2-p318/bin/ruby'
-"Rainbow_parentheses.vimの設定。{}を階層で示す
-au VimEnter * RainbowParenthesesToggle
 filetype plugin indent off
 "マウスを使うための設定
 " Enable mouse support.
@@ -110,35 +108,6 @@ endif
 filetype off
 filetype plugin indent off
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-
-
-"NeoBundle
-"NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'kchmck/vim-coffee-script.git'
-NeoBundle 'taka84u9/vim-ref-ri'
-NeoBundle 'kana/vim-smartinput'
-"以下、インストールするプラグインのリポジトリを必要に応じて追記
-
-"-----------------------------------------------------------------------------------
-"vim-smartinputの設定
-call smartinput#define_rule({'at': '\\\%#', 'char': '(', 'input': '('})
-"-----------------------------------------------------------------------------------
 filetype plugin on
 filetype indent on
 let g:vimfiler_as_default_explorer=1
