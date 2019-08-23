@@ -81,6 +81,10 @@ alias java='java -Dfile.encoding=UTF-8'
 ## tmux
 alias tmux='tmux -u'
 
+# https://askubuntu.com/questions/1155199/ctrl-a-and-ctrl-e-map-incorrectly-in-tmux
+bindkey -e
+#bindkey -v
+
 # Backspace key {{{1
 bindkey "^?" backward-delete-char
 
@@ -171,9 +175,9 @@ setopt pushd_ignore_dups
 # 履歴の保存先
 HISTFILE=$HOME/.zsh-history
 # メモリに展開する履歴の数
-HISTSIZE=10000
+HISTSIZE=100000
 # 保存する履歴の数
-SAVEHIST=10000
+SAVEHIST=100000
 # ヒストリ全体でのコマンドの重複を禁止する
 setopt hist_ignore_dups
 # コマンドの空白をけずる
@@ -319,12 +323,6 @@ esac
 # local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-# vimを香り屋にする.
-# vim: set foldmethod=marker :
-#export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-#alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-#alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-
 # http://qiita.com/yaotti/items/157ff0a46736ec793a91
 setopt AUTO_CD
 cdpath=(.. ~ ~/src)
@@ -343,16 +341,45 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
-export EDITOR=vim
+# peco
+# https://qiita.com/ytanto/items/f0e9ec3c28e0b556e328
+function select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle -R -c
+}
+zle -N select-history
+bindkey '^r' select-history
 
-PATH=/Users/katouryou/bin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/Users/katouryou/bin/osx:/opt/local/bin:/opt/local/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/katouryou/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/katouryou/.rvm/bin:/Users/katouryou/bin
+
+export EDITOR=vim
+export PATH=/usr/local/bin:$PATH
+
+# z
+export PATH=/usr/local/etc/profile.d/z.sh:$PATH
 
 export PATH="$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
-export PATH="$HOME/.plenv/shims:$PATH"
-eval "$(plenv init -)"
-export PATH="$HOME/.pyenv/shims:$PATH"
+#export PATH="$HOME/.plenv/shims:$PATH"
+#eval "$(plenv init -)"
+#export PATH="$HOME/.pyenv/shims:$PATH"
 #export path="$home/.pyenv/bin:$path"
-eval "$(pyenv init -)"
+#eval "$(pyenv init -)"
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 export PGDATA=/usr/local/var/postgres
+export PATH=$HOME/Library/Python/3.7/bin:$PATH
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ryo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ryo/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ryo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ryo/google-cloud-sdk/completion.zsh.inc'; fi
+
+
