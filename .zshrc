@@ -107,9 +107,7 @@ GRAY="%{${fg[GRAY]}%}"
 
 RPROMPT="%T"
 setopt transient_rprompt
-. `brew --prefix`/etc/profile.d/z.sh
 precmd () {
-    z --add "$(pwd -P)"
     PROMPT="${GREEN}%n${RESET}@${BLUE}%m${YELLOW} %~${RESET}" 
     st=`git status 2>/dev/null`
     if [[ -n `echo "$st" | grep "^nothing to"` ]]
