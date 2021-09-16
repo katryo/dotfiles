@@ -303,9 +303,6 @@ export PERLBREW_ROOT=$HOME/.perl5/perlbrew
 [[ -s "${HOME}/.perl5/perlbrew/etc/bashrc" ]] && source $HOME/.perl5/perlbrew/etc/bashrc
 export PERL_BADLANG=0
 
-## Node
-[ -s "${HOME}/.nvm/nvm.sh" ] && source $HOME/.nvm/nvm.sh
-
 # Extra zshrc files {{{1
 
 # os depending settings
@@ -372,6 +369,11 @@ eval "$(rbenv init -)"
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 export PGDATA=/usr/local/var/postgres
 export PATH=$HOME/Library/Python/3.7/bin:$PATH
+
+## Node
+[ -s "${HOME}/.nvm/nvm.sh" ] && source $HOME/.nvm/nvm.sh
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # The next line updates PATH for the Google Cloud SDK.
