@@ -25,6 +25,8 @@ export CATALINA_HOME=$HOME/work/codes/info_system_design_1/20120612/tomcat_activ
 
 # Alias {{{1
 
+## WSL2
+alias open="powershell.exe /c start"
 
 ## General
 alias ps='ps aux'
@@ -288,10 +290,35 @@ chpwd() {
 # Language specific configuration {{{1
 
 ## Python
+
 [ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 export NOSE_REDNOSE=1
 export PYTHONPATH=$HOME/.pythonpath:$PYTHONPATH
 export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+## CUDA
+
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/cuda_runtime/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/cufft/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/cublas/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/cudnn/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/curand/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/cusparse/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/cuda_cupti/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/cusolver/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/.local/lib/python3.10/site-packages/nvidia/nccl/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ryo/sd-scripts/venv/lib/python3.10/site-packages/tensorrt_libs
+
+export CUDA_HOME="/usr/local/cuda-11.8"
+export PATH="$CUDA_HOME/bin:$PATH"
+export LD_LIBRARY_PATH="$CUDA_HOME/lib64"
+export PATH="${HOME}/.local/bin:$PATH"
+
+# export PATH="/usr/local/cuda-11.8/bin:$PATH"
+# export PATH="/usr/local/cuda-12.1/bin:$PATH"
+
+
 
 ## Ruby
 [ -s "${HOME}/.rvm/scripts/rvm" ] && source $HOME/.rvm/scripts/rvm
@@ -382,4 +409,30 @@ if [ -f '/Users/ryo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ryo/google-
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ryo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ryo/google-cloud-sdk/completion.zsh.inc'; fi
 
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/ryo/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ryo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ryo/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ryo/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ryo/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

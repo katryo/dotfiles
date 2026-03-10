@@ -7,7 +7,7 @@
 	grep = auto
 [core]
 	editor = vim
-	excludesfile = /Users/katryo/.gitignore_global
+	excludesFile = /home/ryo/.gitignore_global
 	precomposeunicode = true
 [user]
 	name = katryo
@@ -49,3 +49,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
